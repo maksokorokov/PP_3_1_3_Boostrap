@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>User page</title>
+</head>
+<body>
+<h2>Данные пользователя</h2>
+<p></p>
+
+<table>
+    <tr>
+        <td>id</td>
+        <td>:</td>
+        <td th:utext="${user.getId()}"></td>
+    </tr>
+    <tr>
+        <td>E-mail</td>
+        <td>:</td>
+        <td th:utext="${user.getEmail()}"></td>
+    </tr>
+    <tr>
+        <td>Имя</td>
+        <td>:</td>
+        <td th:utext="${user.getFirstName()}"></td>
+    </tr>
+    <tr>
+        <td>Фамилия</td>
+        <td>:</td>
+        <td th:utext="${user.getLastName()}"></td>
+    </tr>
+
+    <tr>
+        <td>Pass</td>
+        <td>:</td>
+        <td th:utext="${user.getPassword()}"></td>
+    </tr>
+</table>
+<p/>
+<a th:href="@{/logout}">Выйти</a>
+</body>
+</html>
