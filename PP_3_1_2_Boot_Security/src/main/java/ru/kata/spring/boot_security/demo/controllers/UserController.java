@@ -10,17 +10,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repository.RoleCrudRepository;
+import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 @Controller
 public class UserController {
     private UserService userService;
-    private RoleCrudRepository roleCrudRepository;
+//    private RoleCrudRepository roleCrudRepository;
+    private RoleService roleService;
 
     @Autowired
-    public UserController(UserService userService, RoleCrudRepository roleCrudRepository) {
+    public UserController(UserService userService, RoleService roleService) {
         this.userService = userService;
-        this.roleCrudRepository = roleCrudRepository;
+        this.roleService = roleService;
     }
 
 
@@ -45,7 +47,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("edituser");
         modelAndView.addObject("user", userService.getUser(userId));
-        modelAndView.addObject("roles", roleCrudRepository.findAllByRoleNameNotNull());
+        modelAndView.addObject("roles", roleService.findAllByRoleNameNotNull());
         return modelAndView;
     }
 
@@ -66,7 +68,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("adduser");
         modelAndView.addObject("newuser", newUser);
-        modelAndView.addObject("roles", roleCrudRepository.findAllByRoleNameNotNull());
+        modelAndView.addObject("roles", roleService.findAllByRoleNameNotNull());
         return modelAndView;
     }
 

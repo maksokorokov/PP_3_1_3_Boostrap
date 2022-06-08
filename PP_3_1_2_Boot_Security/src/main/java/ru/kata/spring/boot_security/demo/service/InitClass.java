@@ -15,21 +15,22 @@ import java.util.List;
 @Component
 public class InitClass {
     private UserService userService;
-    private RoleCrudRepository roleCrudRepository;
+//    private RoleCrudRepository roleCrudRepository;
+    private RoleService roleService;
 
     @Autowired
-    public InitClass(UserService userService, RoleCrudRepository roleCrudRepository) {
+    public InitClass(UserService userService, RoleService roleService) {
         this.userService = userService;
-        this.roleCrudRepository = roleCrudRepository;
+        this.roleService = roleService;
     }
 
     @javax.annotation.PostConstruct
     public void init() {
 
         Role roleAdmin = new Role("ROLE_ADMIN");
-        roleCrudRepository.save(roleAdmin);
+        roleService.saveRole(roleAdmin);
         Role roleUser = new Role("ROLE_USER");
-        roleCrudRepository.save(roleUser);
+        roleService.saveRole(roleUser);
 
         List<Role> roleSet1 = new ArrayList<>();
         roleSet1.add(roleAdmin);

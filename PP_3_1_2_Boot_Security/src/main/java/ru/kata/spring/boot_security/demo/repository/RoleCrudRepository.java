@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface RoleCrudRepository extends JpaRepository<Role, Long> {
     public Role getRoleByRoleName(String roleName);
-    public List<Role> findAllByRoleNameNotNull();
+//    public List<Role> findAllByRoleNameNotNull();
 }
 
 
