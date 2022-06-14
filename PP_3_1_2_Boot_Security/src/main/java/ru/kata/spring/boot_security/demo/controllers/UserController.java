@@ -34,10 +34,18 @@ public class UserController {
 
 
 
+//    @GetMapping("/user")
+//    public ModelAndView userPage(@AuthenticationPrincipal User user) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("user");
+//        modelAndView.addObject("user", user);
+//        return modelAndView;
+//    }
+
     @GetMapping("/user")
     public ModelAndView userPage(@AuthenticationPrincipal User user) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user");
+        modelAndView.setViewName("boost/user");
         modelAndView.addObject("user", user);
         return modelAndView;
     }
