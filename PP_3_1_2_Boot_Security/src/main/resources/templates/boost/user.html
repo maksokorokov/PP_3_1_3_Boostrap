@@ -59,10 +59,7 @@
                                         <th scope="col">ID</th>
                                         <th scope="col">First Name</th>
                                         <th scope="col">Last Name</th>
-                                        <th scope="col">Password</th>
-                                        <!--                                Добавить фамилию-->
                                         <th scope="col">Email</th>
-                                        <!--                                Добавить возраст-->
                                         <th scope="col">Role</th>
                                     </tr>
                                     </thead>
@@ -71,7 +68,6 @@
                                         <td th:text="${user.getId()}">ID</td>
                                         <td th:text="${user.getFirstName()}">Name</td>
                                         <td th:text="${user.getLastName()}">Last Name</td>
-                                        <td th:text="${user.getPassword()}">Password</td>
                                         <td th:text="${user.getEmail()}">Email</td>
                                         <td> <a th:each="rol : ${user.getRole()}"
                                                 th:text="${rol.getRoleName()}+' '">Role</a></td>

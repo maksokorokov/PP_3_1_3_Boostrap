@@ -9,14 +9,15 @@ import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repository.RoleCrudRepository;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Component
 public class InitClass {
-    private UserService userService;
-//    private RoleCrudRepository roleCrudRepository;
-    private RoleService roleService;
+    private final UserService userService;
+    private final RoleService roleService;
 
     @Autowired
     public InitClass(UserService userService, RoleService roleService) {
@@ -32,12 +33,12 @@ public class InitClass {
         Role roleUser = new Role("ROLE_USER");
         roleService.saveRole(roleUser);
 
-        List<Role> roleSet1 = new ArrayList<>();
+        Set<Role> roleSet1 = new HashSet<>();
         roleSet1.add(roleAdmin);
         roleSet1.add(roleUser);
-        List<Role> roleSet2 = new ArrayList<>();
+        Set<Role> roleSet2 = new HashSet<>();
         roleSet2.add(roleAdmin);
-        List<Role> roleSet3 = new ArrayList<>();
+        Set<Role> roleSet3 = new HashSet<>();
         roleSet3.add(roleUser);
 
         userService.saveUser(new User("max1@mail.ru", "max1", "Иван", "Иванов",  roleSet1));
